@@ -1,5 +1,7 @@
 body {
-    background-image: url(../img/fondo2.JPG);
+    background-image: url(../img/fondo_rosi.png); 
+    /* background-image: url(../img/fondo.JPG);  */
+    /* 1728 × 1296 */
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -18,7 +20,7 @@ body {
 }
 
 .form-control {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.2);
     border-style: none;
     transition: 0.4s ease-in-out;
     color: white;
@@ -44,6 +46,10 @@ body {
     color: white;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.568);
     transition: 0.4s ease-in-out;
+}
+
+.colorNegro {
+    color: rgb(86, 97, 127)!important;
 }
 
 .ingresar:hover {
