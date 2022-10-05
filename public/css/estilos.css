@@ -1,7 +1,5 @@
 body {
-    background-image: url(../img/fondo_rosi.png); 
-    /* background-image: url(../img/fondo.JPG);  */
-    /* 1728 × 1296 */
+    background-image: url(../img/fondo_rosi.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
