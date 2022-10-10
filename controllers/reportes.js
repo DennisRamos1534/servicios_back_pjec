@@ -133,7 +133,7 @@ const deleteReporteFolioPruebas = async (req, res = response) => {
 const actualizarEstado = async (req, res = response) => {
     
     const {id} = req.params;
-    const reporte = await Reporte.findByIdAndUpdate(id, {estado: 4});
+    const reporte = await Reporte.findByIdAndUpdate(id, {estado: 2});
     res.json({
         ok: true,
         reporte
