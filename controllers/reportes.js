@@ -1,5 +1,6 @@
 const { response } = require('express');
 const Reporte = require('../models/reporte');
+const Folio = require('../models/folio');
 
 const crearReporte = async (req, res = response) => {
 
@@ -80,8 +81,6 @@ const reportesCompletados = async (req, res = response) => {
 }
 
 const filtrarReporte = async (req, res = response) => {
-    
-    // const {folio} = req.body;
 
     try {
         const reporte = await Reporte.find({eliminado: false});
@@ -91,6 +90,61 @@ const filtrarReporte = async (req, res = response) => {
             ok: true,
             reporte
         });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        });
+    }
+}
+
+const obtenerFolio = async (req, res = response) => {
+
+    try {
+        const getFolio = await Folio.find();
+  
+        res.json({
+            folio: getFolio[0].numFolio
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        });
+    }
+}
+
+const crearFolio = async (req, res = response) => {
+
+    try {
+        // const crearFolio = await Folio.find();
+        const crearFolio = new Folio({numFolio: 0});
+        await crearFolio.save();
+        res.json({
+            crearFolio
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        });
+    }
+}
+
+const actualizarFolio = async (req, res = response) => {
+
+    try {
+        const {id} = req.params;
+        const getFolio = await Folio.find({_id: id});
+        let incremento = getFolio[0].numFolio + 1;
+        const actualizarFolio = await Folio.findByIdAndUpdate(id, {numFolio: incremento});
+    res.json({
+        ok: true,
+        actualizarFolio
+    });
     } catch (error) {
         console.log(error);
         res.status(500).json({
@@ -156,6 +210,9 @@ module.exports = {
     allReportes,
     allProcesos,
     filtrarReporte,
+    obtenerFolio,
+    crearFolio,
+    actualizarFolio,
     deleteAllReporte,
     deleteReporte,
     deleteReporteFolio,

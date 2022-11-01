@@ -4,7 +4,7 @@
 
  const {Router} = require('express');
  const { check } = require('express-validator');
- const { crearReporte, allReportes, deleteReporte, actualizarEstado, reportesCompletados, allProcesos, actualizarEstadoTerminado, deleteReporteFolio, deleteReporteFolioPruebas, deleteAllReporte, filtrarReporte } = require('../controllers/reportes');
+ const { crearReporte, allReportes, actualizarEstado, reportesCompletados, allProcesos, actualizarEstadoTerminado, deleteReporteFolio, deleteReporteFolioPruebas, deleteAllReporte, filtrarReporte, actualizarFolio, obtenerFolio, crearFolio } = require('../controllers/reportes');
  const { validarCampos } = require('../middlewares/validar-campos');
  
  const router = Router();
@@ -28,6 +28,10 @@
  router.get('/completado', reportesCompletados);
 
  router.post('/filtrado', filtrarReporte);
+
+ router.get('/obtenerFolio', obtenerFolio);
+ router.post('/crearFolio', crearFolio);
+ router.put('/actualizarFolio/:id', actualizarFolio);
 
 //  router.delete('/:id', [
 //     check('id', 'No es un ID valido').isMongoId(),
