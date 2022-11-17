@@ -4,8 +4,24 @@ const FolioSchema = Schema({
 
     numFolio: {
         type: Intl,
-        required: true
+        // required: true
     },
+    numFolioAA: {
+        type: Intl,
+        // required: true
+    },
+    numFolioMB: {
+        type: Intl,
+        // required: true
+    },
+    numFolioEL: {
+        type: Intl,
+        // required: true
+    },
+    numFolioVE: {
+        type: Intl,
+        // required: true
+    }
 });
 
 FolioSchema.method('toJSON', function() {

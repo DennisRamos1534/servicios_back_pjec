@@ -116,11 +116,79 @@ const obtenerFolio = async (req, res = response) => {
     }
 }
 
+const obtenerFolioAA = async (req, res = response) => {
+
+    try {
+        const getFolio = await Folio.find();
+  
+        res.json({
+            folio: getFolio[0].numFolioAA
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        });
+    }
+}
+
+const obtenerFolioMB = async (req, res = response) => {
+
+    try {
+        const getFolio = await Folio.find();
+  
+        res.json({
+            folio: getFolio[0].numFolioMB
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        });
+    }
+}
+
+const obtenerFolioEL = async (req, res = response) => {
+
+    try {
+        const getFolio = await Folio.find();
+  
+        res.json({
+            folio: getFolio[0].numFolioEL
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        });
+    }
+}
+
+const obtenerFolioVE = async (req, res = response) => {
+
+    try {
+        const getFolio = await Folio.find();
+  
+        res.json({
+            folio: getFolio[0].numFolioVE
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        });
+    }
+}
+
 const crearFolio = async (req, res = response) => {
 
     try {
         // const crearFolio = await Folio.find();
-        const crearFolio = new Folio({numFolio: 0});
+        const crearFolio = new Folio({numFolio: 0}, {numFolioAA: 0},{ numFolioMB: 0},{ numFolioEL: 0}, {numFolioVE: 0});
         await crearFolio.save();
         res.json({
             crearFolio
@@ -134,6 +202,24 @@ const crearFolio = async (req, res = response) => {
     }
 }
 
+// const crearFolioAA = async (req, res = response) => {
+
+//     try {
+//         // const crearFolio = await Folio.find();
+//         const crearFolio = new Folio({numFolio: 0});
+//         await crearFolio.save();
+//         res.json({
+//             crearFolio
+//         });
+//     } catch (error) {
+//         console.log(error);
+//         res.status(500).json({
+//             ok: false,
+//             msg: 'Hable con el administrador'
+//         });
+//     }
+// }
+
 const actualizarFolio = async (req, res = response) => {
 
     try {
@@ -141,6 +227,86 @@ const actualizarFolio = async (req, res = response) => {
         const getFolio = await Folio.find({_id: id});
         let incremento = getFolio[0].numFolio + 1;
         const actualizarFolio = await Folio.findByIdAndUpdate(id, {numFolio: incremento});
+    res.json({
+        ok: true,
+        actualizarFolio
+    });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        });
+    }
+}
+
+const actualizarFolioAA = async (req, res = response) => {
+
+    try {
+        const {id} = req.params;
+        const getFolio = await Folio.find({_id: id});
+        let incremento = getFolio[0].numFolioAA + 1;
+        const actualizarFolio = await Folio.findByIdAndUpdate(id, {numFolioAA: incremento});
+    res.json({
+        ok: true,
+        actualizarFolio
+    });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        });
+    }
+}
+
+const actualizarFolioMB = async (req, res = response) => {
+
+    try {
+        const {id} = req.params;
+        const getFolio = await Folio.find({_id: id});
+        let incremento = getFolio[0].numFolioMB + 1;
+        const actualizarFolio = await Folio.findByIdAndUpdate(id, {numFolioMB: incremento});
+    res.json({
+        ok: true,
+        actualizarFolio
+    });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        });
+    }
+}
+
+const actualizarFolioEL = async (req, res = response) => {
+
+    try {
+        const {id} = req.params;
+        const getFolio = await Folio.find({_id: id});
+        let incremento = getFolio[0].numFolioEL + 1;
+        const actualizarFolio = await Folio.findByIdAndUpdate(id, {numFolioEL: incremento});
+    res.json({
+        ok: true,
+        actualizarFolio
+    });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        });
+    }
+}
+
+const actualizarFolioVE = async (req, res = response) => {
+
+    try {
+        const {id} = req.params;
+        const getFolio = await Folio.find({_id: id});
+        let incremento = getFolio[0].numFolioVE + 1;
+        const actualizarFolio = await Folio.findByIdAndUpdate(id, {numFolioVE: incremento});
     res.json({
         ok: true,
         actualizarFolio
@@ -211,8 +377,16 @@ module.exports = {
     allProcesos,
     filtrarReporte,
     obtenerFolio,
+    obtenerFolioAA,
+    obtenerFolioMB,
+    obtenerFolioEL,
+    obtenerFolioVE,
     crearFolio,
     actualizarFolio,
+    actualizarFolioAA,
+    actualizarFolioMB,
+    actualizarFolioEL,
+    actualizarFolioVE,
     deleteAllReporte,
     deleteReporte,
     deleteReporteFolio,

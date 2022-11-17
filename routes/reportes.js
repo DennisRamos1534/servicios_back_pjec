@@ -4,7 +4,7 @@
 
  const {Router} = require('express');
  const { check } = require('express-validator');
- const { crearReporte, allReportes, actualizarEstado, reportesCompletados, allProcesos, actualizarEstadoTerminado, deleteReporteFolio, deleteReporteFolioPruebas, deleteAllReporte, filtrarReporte, actualizarFolio, obtenerFolio, crearFolio } = require('../controllers/reportes');
+ const { crearReporte, allReportes, actualizarEstado, reportesCompletados, allProcesos, actualizarEstadoTerminado, deleteReporteFolio, deleteReporteFolioPruebas, deleteAllReporte, filtrarReporte, actualizarFolio, obtenerFolio, crearFolio, obtenerFolioAA, crearFolioAA, actualizarFolioAA, obtenerFolioMB, obtenerFolioEL, obtenerFolioVE, actualizarFolioMB, actualizarFolioEL, actualizarFolioVE } = require('../controllers/reportes');
  const { validarCampos } = require('../middlewares/validar-campos');
  
  const router = Router();
@@ -29,9 +29,25 @@
 
  router.post('/filtrado', filtrarReporte);
 
- router.get('/obtenerFolio', obtenerFolio);
  router.post('/crearFolio', crearFolio);
+ router.get('/obtenerFolio', obtenerFolio); // EL DE OTROS
  router.put('/actualizarFolio/:id', actualizarFolio);
+
+ //  router.post('/crearFolioAA', crearFolioAA);
+ router.get('/obtenerFolioAA', obtenerFolioAA);
+ router.put('/actualizarFolioAA/:id', actualizarFolioAA);
+
+ //  router.post('/crearFolioMB', crearFolioMB);
+ router.get('/obtenerFolioMB', obtenerFolioMB);
+ router.put('/actualizarFolioMB/:id', actualizarFolioMB);
+
+ //  router.post('/crearFolioEL', crearFolioEL);
+ router.get('/obtenerFolioEL', obtenerFolioEL);
+ router.put('/actualizarFolioEL/:id', actualizarFolioEL);
+
+//  router.post('/crearFolioVE', crearFolioVE);
+ router.get('/obtenerFolioVE', obtenerFolioVE);
+ router.put('/actualizarFolioVE/:id', actualizarFolioVE);
 
 //  router.delete('/:id', [
 //     check('id', 'No es un ID valido').isMongoId(),
