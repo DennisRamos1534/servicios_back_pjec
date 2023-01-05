@@ -1,7 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', async () => {
 
-    const pathUrl = 'http://74.208.190.219:3000';
+    const pathUrl = 'http://74.208.190.219:4000';
     // const pathUrl = 'http://localhost:3000';
     const urlPersonas = `${pathUrl}/api/reporte`;
     const urlLogin = `${pathUrl}/api/login/adminrenovar`;
