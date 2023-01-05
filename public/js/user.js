@@ -43,7 +43,7 @@ const consultarApi = async (usuario, password) => {
         "password": password
     }
    
-    const url = 'http://66.175.233.101:3000/api/login/admin';
+    const url = 'http://74.208.190.219:3000/api/login/admin';
     // const url = 'http://localhost:3000/api/login/admin';
 
     try {
